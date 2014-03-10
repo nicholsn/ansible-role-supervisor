@@ -2,6 +2,6 @@ supervisor_config_dir: "/etc/supervisor/conf.d/"
 supervisorctl_command: "supervisorctl"
 redirect_stderr: "true"
 autorestart: "true"
-startsecs: 10
+startsecs: 2
 autostart: "true"
 env_vars: {}

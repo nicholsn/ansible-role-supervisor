@@ -16,6 +16,7 @@ A role for creating supervisor tasks.
       name: webserver
       command: python -m SimpleHTTPServer
       directory: /opt/web
+      startsecs: 2
       user: ubuntu
 ```
 
