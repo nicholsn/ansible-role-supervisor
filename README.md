@@ -1,4 +1,4 @@
-# ansible-supervisor_task
+# ansible-role-supervisor
 
 A role for creating supervisor tasks.
 
@@ -12,7 +12,7 @@ A role for creating supervisor tasks.
 ## Usage:
 ```
   roles:
-    - role: EDITD.supervisor_task
+    - role: nicholsn.supervisor
       name: webserver
       command: python -m SimpleHTTPServer
       directory: /opt/web
