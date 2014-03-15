@@ -6,6 +6,9 @@
   notify:
     - start supervisor
 
+- name: start supervisor
+  service: name=supervisor state=started
+
 - name: installing task {{ name }}
   template: src=task.conf.j2 dest={{ supervisor_config_dir }}/{{ name }}.conf
   register: supervisor_task_conf
