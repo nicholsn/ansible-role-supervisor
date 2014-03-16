@@ -3,11 +3,13 @@
 - name: install supervisor
   apt: pkg=supervisor state=present update_cache=true
   sudo: yes
-  notify:
-    - start supervisor
 
 - name: start supervisor
   service: name=supervisor state=restarted
+
+- name: wait before starting {{ name }}
+  wait_for: port={{ supervisor_port }} delay=10
+  sudo: yes
 
 - name: installing task {{ name }}
   template: src=task.conf.j2 dest={{ supervisor_config_dir }}/{{ name }}.conf
@@ -15,7 +17,6 @@
   sudo: yes
 
 - name: starting {{ name }}
-  wait_for: port=9001 delay=10
   supervisorctl: name={{ name }} state=present
   register: supervisor_task_started
   sudo: yes
