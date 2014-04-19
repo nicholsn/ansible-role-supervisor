@@ -5,11 +5,7 @@
   sudo: yes
 
 - name: start supervisor
-  service: name=supervisor state=restarted
-
-- name: wait before starting {{ name }}
-  wait_for: port={{ supervisor_port }} delay=10
-  sudo: yes
+  service: name=supervisor state=started
 
 - name: installing task {{ name }}
   template: src=task.conf.j2 dest={{ supervisor_config_dir }}/{{ name }}.conf
